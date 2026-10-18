@@ -15,4 +15,7 @@ public class TodoController : ControllerBase
 
     [HttpGet]
     public ActionResult<List<Todo>> GetAllTasks() => TodoService.GetAllTasks();
+
+    [HttpGet("{id}")]
+    public Todo? GetTaskById(int id) => TodoService.GetTaskById(id);
 }
