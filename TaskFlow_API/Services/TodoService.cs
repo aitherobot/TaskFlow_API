@@ -5,7 +5,7 @@ namespace TaskFlow_API.Services;
 public static class TodoService
 {
     private static List<Todo> Todos { get; }
-    private static int nextId = 0;
+    private static int nextId = 3;
 
     static TodoService()
     {
@@ -19,4 +19,30 @@ public static class TodoService
     public static List<Todo> GetAllTasks() => Todos;
     
     public static Todo? GetTaskById(int id) => Todos.FirstOrDefault(t => t.Id == id);
+
+    public static void Add(Todo todo)
+    {
+        todo.Id = nextId++;
+        Todos.Add(todo);
+    }
+    
+    public static void Update(Todo todo)
+    {
+        var index = Todos.FindIndex(t => t.Id == todo.Id);
+
+        if (index == -1)
+            return;
+
+        Todos[index] = todo;
+    }
+
+    public static void Delete(int id)
+    {
+        var todo = GetTaskById(id);
+        
+        if (todo is null)
+            return;
+        
+        Todos.Remove(todo);
+    }
 }

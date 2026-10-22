@@ -12,3 +12,30 @@ Accept: application/json
 
 GET {{TaskFlow_API_HostAddress}}/todo/2
 Accept: application/json
+
+###
+
+POST {{TaskFlow_API_HostAddress}}/todo/
+Content-Type: application/json
+
+{
+  "name": "TaskFlow Api Completion",
+  "description": "Finish working on the TaskFlow API"
+}
+
+###
+
+PUT {{TaskFlow_API_HostAddress}}/todo/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "TaskFlow Api Completion",
+  "description": "Finish working on the TaskFlow API and also do the Claude recommendations"
+}
+
+###
+
+DELETE {{TaskFlow_API_HostAddress}}/todo/2
+
+###
